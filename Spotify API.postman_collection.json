@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "fd952080-c48b-4c83-8a25-6b1a71e69404",
+		"name": "Spotify API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30332170"
+	},
+	"item": [
+		{
+			"name": "New Releases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/browse/new-releases",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"browse",
+						"new-releases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Playlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test Playlist\",\n    \"description\": \"Test playlist description\",\n    \"public\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/users/:user-id/playlists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						":user-id",
+						"playlists"
+					],
+					"variable": [
+						{
+							"key": "user-id",
+							"value": "{{user-id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Items to Playlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uris\": [\n        \"spotify:track:4IoYz8XqqdowINzfRrFnhi\"\n    ],\n    \"position\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/playlists/:playlist-id/tracks",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"playlists",
+						":playlist-id",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlist-id",
+							"value": "5tUBcKvJgZnIswxyONTrYA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User's Playlists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/users/:user-id/playlists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						":user-id",
+						"playlists"
+					],
+					"variable": [
+						{
+							"key": "user-id",
+							"value": "{{user-id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Playlist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/playlists/:playlist-id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"playlists",
+						":playlist-id"
+					],
+					"variable": [
+						{
+							"key": "playlist-id",
+							"value": "1tMClC8pYmDNfjwAXUhwao"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Recommendations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/recommendations?seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical,country&seed_tracks=0c6xIDDpzE81m2q797ordA",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"recommendations"
+					],
+					"query": [
+						{
+							"key": "seed_artists",
+							"value": "4NHQUGzhtTLFvgF5SZesLK"
+						},
+						{
+							"key": "seed_genres",
+							"value": "classical,country"
+						},
+						{
+							"key": "seed_tracks",
+							"value": "0c6xIDDpzE81m2q797ordA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User's Top Items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/me/top/artists",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"me",
+						"top",
+						"artists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Track",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/tracks/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"tracks",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3rUGC1vUpkDG9CZFHMur1t"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Available Devices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/me/player/devices",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"me",
+						"player",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start/Resume Playback",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uris\": [\"spotify:track:2Zo1PcszsT9WQ0ANntJbID\"],\n    \"position_ms\": 25479\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/me/player/play?device_id=f589aab5f4440fe31403becda8975645fc2fbc6a",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"me",
+						"player",
+						"play"
+					],
+					"query": [
+						{
+							"key": "device_id",
+							"value": "f589aab5f4440fe31403becda8975645fc2fbc6a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pause Playback",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/me/player/pause?device_id=f589aab5f4440fe31403becda8975645fc2fbc6a",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"me",
+						"player",
+						"pause"
+					],
+					"query": [
+						{
+							"key": "device_id",
+							"value": "f589aab5f4440fe31403becda8975645fc2fbc6a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Currently Playing Track",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/me/player/currently-playing",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"me",
+						"player",
+						"currently-playing"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "scope",
+				"value": "playlist-read-private playlist-modify-private playlist-modify-public user-read-playback-state user-modify-playback-state",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "http://localhost",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://accounts.spotify.com/authorize",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://accounts.spotify.com/api/token",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{client-secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{client-id}}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
